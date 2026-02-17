@@ -23,13 +23,3 @@ class LineHeightAttribute extends Attribute<double?> {
   static const Attribute<double?> lineHeightDouble =
       LineHeightAttribute(lineHeight: 2);
 }
-
-class MarginTopAttribute extends Attribute<double?> {
-  const MarginTopAttribute([double? marginTop])
-      : super('margin-top', AttributeScope.block, marginTop);
-}
-
-class MarginBottomAttribute extends Attribute<double?> {
-  const MarginBottomAttribute([double? marginBottom])
-      : super('margin-bottom', AttributeScope.block, marginBottom);
-}

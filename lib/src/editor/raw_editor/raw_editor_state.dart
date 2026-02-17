@@ -760,25 +760,18 @@ class QuillRawEditorState extends EditorState
   VerticalSpacing _getVerticalSpacingForBlock(
       Block node, DefaultStyles? defaultStyles) {
     final attrs = node.style.attributes;
-    final marginTop = attrs[Attribute.marginTop.key]?.value;
-    final marginBottom = attrs[Attribute.marginBottom.key]?.value;
-
-    var verticalSpacing = VerticalSpacing.zero;
-
     if (attrs.containsKey(Attribute.blockQuote.key)) {
-      verticalSpacing = defaultStyles!.quote!.verticalSpacing;
+      return defaultStyles!.quote!.verticalSpacing;
     } else if (attrs.containsKey(Attribute.codeBlock.key)) {
-      verticalSpacing = defaultStyles!.code!.verticalSpacing;
+      return defaultStyles!.code!.verticalSpacing;
     } else if (attrs.containsKey(Attribute.indent.key)) {
-      verticalSpacing = defaultStyles!.indent!.verticalSpacing;
+      return defaultStyles!.indent!.verticalSpacing;
     } else if (attrs.containsKey(Attribute.list.key)) {
-      verticalSpacing = defaultStyles!.lists!.verticalSpacing;
+      return defaultStyles!.lists!.verticalSpacing;
     } else if (attrs.containsKey(Attribute.align.key)) {
-      verticalSpacing = defaultStyles!.align!.verticalSpacing;
+      return defaultStyles!.align!.verticalSpacing;
     }
-    return verticalSpacing.copyWith(
-        top: marginTop ?? verticalSpacing.top,
-        bottom: marginBottom ?? verticalSpacing.bottom);
+    return VerticalSpacing.zero;
   }
 
   BoxDecoration? _getDecoration(Node node, DefaultStyles? defaultStyles,

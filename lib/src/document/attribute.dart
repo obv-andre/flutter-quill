@@ -4,7 +4,6 @@ import 'package:flutter/foundation.dart' show immutable;
 import 'package:quiver/core.dart';
 
 import 'custom_attributes.dart';
-
 export 'custom_attributes.dart';
 
 enum AttributeScope {
@@ -44,8 +43,6 @@ class Attribute<T> {
     Attribute.placeholder.key: Attribute.placeholder,
     Attribute.header.key: Attribute.header,
     Attribute.lineHeight.key: Attribute.lineHeight,
-    Attribute.marginTop.key: Attribute.marginTop,
-    Attribute.marginBottom.key: Attribute.marginBottom,
     Attribute.align.key: Attribute.align,
     Attribute.direction.key: Attribute.direction,
     Attribute.list.key: Attribute.list,
@@ -94,10 +91,6 @@ class Attribute<T> {
   static const HeaderAttribute header = HeaderAttribute();
 
   static const LineHeightAttribute lineHeight = LineHeightAttribute();
-
-  static const MarginTopAttribute marginTop = MarginTopAttribute();
-
-  static const MarginBottomAttribute marginBottom = MarginBottomAttribute();
 
   static const IndentAttribute indent = IndentAttribute();
 
@@ -160,8 +153,6 @@ class Attribute<T> {
     Attribute.indent.key,
     Attribute.direction.key,
     Attribute.lineHeight.key,
-    Attribute.marginTop.key,
-    Attribute.marginBottom.key,
   });
 
   static final Set<String> blockKeysExceptHeader = LinkedHashSet.of({
@@ -170,8 +161,6 @@ class Attribute<T> {
     Attribute.codeBlock.key,
     Attribute.blockQuote.key,
     Attribute.lineHeight.key,
-    Attribute.marginTop.key,
-    Attribute.marginBottom.key,
     Attribute.indent.key,
     Attribute.direction.key,
   });
