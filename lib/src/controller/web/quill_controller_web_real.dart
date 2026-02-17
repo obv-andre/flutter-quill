@@ -6,19 +6,19 @@ import 'package:web/web.dart';
 
 import '../quill_controller.dart';
 
-StreamSubscription? _webCopyEventSubscription;
+StreamSubscription? _webPasteEventSubscription;
 
 extension QuillControllerWeb on QuillController {
   void initializeWebClipboardEvents() {
-    _webCopyEventSubscription =
-        EventStreamProviders.copyEvent.forTarget(window.document).listen((e) {
-      clipboardSelection(true);
+    _webPasteEventSubscription =
+        EventStreamProviders.pasteEvent.forTarget(window.document).listen((e) {
+      clipboardPaste();
       e.preventDefault();
     });
   }
 
   void closeWebClipboardEvents() {
-    _webCopyEventSubscription?.cancel();
-    _webCopyEventSubscription = null;
+    _webPasteEventSubscription?.cancel();
+    _webPasteEventSubscription = null;
   }
 }
