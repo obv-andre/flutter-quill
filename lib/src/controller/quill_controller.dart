@@ -462,10 +462,12 @@ class QuillController extends ChangeNotifier {
   void dispose() {
     if (!_isDisposed) {
       document.close();
-      closeWebClipboardEvents();
     }
 
     _isDisposed = true;
+    if (kIsWeb) {
+      closeWebClipboardEvents();
+    }
     super.dispose();
   }
 
